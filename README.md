@@ -55,4 +55,4 @@ VS after Quotifier does its magic 🔥
         </html>
 ```
 
-# COPYRIGHT FAMINGO LABS INC. ALL RIGHTS RESERVED 2017
+## COPYRIGHT FAMINGO LABS INC. ALL RIGHTS RESERVED 2017
