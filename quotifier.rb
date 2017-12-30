@@ -41,7 +41,7 @@ class Quotifier
     def random_quote()
     random_author = rand(0..(@dictionnary['authors'].count-1))
     random_quote = rand(0..(@dictionnary['quotes'].count - 1))
-    return "\"" + @dictionnary['quotes'][random_quote] + " - "+ @dictionnary['authors'][random_author] + "\""
+    return "\t\"" + @dictionnary['quotes'][random_quote] + " - "+ @dictionnary['authors'][random_author] + "\"" + "\n"
     end
 
 
