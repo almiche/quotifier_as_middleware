@@ -1,4 +1,4 @@
-# Quotifier_as_middleware
+# Quotifier_as_middleware [![Gem Version](https://badge.fury.io/rb/quotifier.svg)](https://badge.fury.io/rb/quotifier)
 
 Have you ever used the now infamous Quotifier by Famingo Labs Inc. and thought to yourself 🤔 "Gee I wish this was available as a Rack Middleware in order to add dope AF 🔥🔥🔥🔥🔥 quotes to my html files being served up for my clients" well say no more fam Famingo Labs Inc. has come to your rescue.
 
