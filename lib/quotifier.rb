@@ -1,11 +1,12 @@
 require 'json'
+require 'net/http'
 
 class Quotifier
 
     def initialize(app)
         @app  = app
-        file = File.read("db.json")
-        @dictionnary = JSON.parse(file)
+        url = "https://raw.githubusercontent.com/jusleg/quotifier/master/db.json"
+        @dictionnary = JSON.parse(Net::HTTP.get(URI.parse(url)))
     end
 
     def call(env)
