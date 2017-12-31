@@ -4,8 +4,7 @@ Have you ever used the now infamous Quotifier by Famingo Labs Inc. and thought t
 
 ## Instructions
 
-In order to use this dank Middleware simply copy the quotifer.rb file into your project. Require the file in you config.ru
-and add the following statement.
+Quotifier is available as a gem on https://rubygems.org/gems/quotifier/versions/0.0.2 as such you can add it into your Gemfile using `gem "quotifier"`. Require the file in you config.ru and add the following statement.
 `use Quotifier`
 And there you have it family simply as apply pie. Your html will be dripping liquid 🔥. 
 
