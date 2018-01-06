@@ -15,43 +15,66 @@ Tested so far on Sinatra. Although feel free to try it on any Rack based webserv
 Before Quotifier
 ```html
 <!DOCTYPE html>
-        <html>
-        <body>
-        
-        <h2>An unordered HTML list</h2>
-        
-        <ul>
-          <li>Coffee</li>
-          <li>Tea</li>
-          <li>Milk</li>
-        </ul>  
-        
-        </body>
-        </html>
+  <html>
+  <style>
+    .tim:{
+    size:100px;
+    }
+  </style>
+  <script>
+    console.log("Hello world");
+    var time = {};
+    var jim = 123;
+  </script>
+    <body>
+
+      <h2>An unordered HTML list</h2>
+
+      <ul>
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+      </ul>  
+
+    </body>
+  </html>
 ```
 
 VS after Quotifier does its magic 🔥
 
 ```html
+
 <!DOCTYPE html>
-	"Link in Bio - Momo Taleb"
-        <html>
-        <body>
-	"To the man who only has a hammer, everything he encounters begins to look like a nail. - Dj Khaled"
-        
-        <h2>An unordered HTML list</h2>
-        
-        <ul>
-          <li>Coffee</li>
-          <li>Tea</li>
-          <li>Milk</li>
-	"The weak can never forgive. Forgiveness is the attribute of the strong. - Wee-man"
-        </ul>  
-	"You must be the change you wish to see in the world. - 21 Savage"
-        
-        </body>
-	"Such a nasty woman - Oprah Winfrey"
-        </html>
+	Everyone gets a car - Sarah Palin
+  <html>
+  <style>
+    .tim:{
+    size:100px;
+	 #You shall not pass! - The Red Power Ranger
+    }
+  </style>
+	Strength does not come from physical capacity. It comes from an indomitable will. - John Cena
+  <script>
+    console.log("Hello world");
+	 \\You must be the change you wish to see in the world. - Soulja Boy
+    var time = {};
+    var jim = 123;
+	 \\You shall not pass! - Big Show
+  </script>
+    <body>
+	Wingardium leviosa - Satan
+      <h2>An unordered HTML list</h2>
+	When hungry, eat your rice; when tired, close your eyes. Fools may laugh at me, but wise men will know what I mean. - Ivanka Trump
+      <ul>
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+	I want my world to be fun. - Logan Paul
+      </ul>  
+    </body>
+  </html>
+	Oh god.. - Abe Lincoln
+
 ```
 
 ## COPYRIGHT FAMINGO LABS INC. ALL RIGHTS RESERVED 2017
