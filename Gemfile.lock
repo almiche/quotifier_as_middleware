@@ -1,12 +1,15 @@
 GEM
   specs:
     json (2.1.0)
+    quotify (0.1.0)
+      json
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   json
+  quotify
 
 BUNDLED WITH
    1.16.1

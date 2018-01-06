@@ -1,5 +1,6 @@
 require 'json'
 require 'net/http'
+require 'quotify'
 
 class Quotifier
 
@@ -10,18 +11,17 @@ class Quotifier
     end
 
     def call(env)
-        status, headers, body = @app.call(env) 
+        status, @headers, body = @app.call(env) 
         
-        if headers['Content-Type'].include?'text/html'
-            [status, headers, quotify(body,headers)]
+        if @headers['Content-Type'].include?'text/html'
+            [status, @headers, quotify(body)]
         else
-            [status, headers, body] 
+            [status, @headers, body] 
         end
       
     end
 
-    def quotify(html,headers)
-
+    def quotify(html)
         string_html = html[0]
         counter = 0
         fresh_output = String.new
@@ -29,22 +29,15 @@ class Quotifier
         string_html.each_line do |line|  
             random_mod = rand(1..10)
             if counter % random_mod == 0
-                line += random_quote 
+                line += "\t\"" + Quotify.generate + "\"" + "\n"
             end
             fresh_output << line
             counter = counter + 1
         end
         html[0] = fresh_output
-        headers['Content-Length'] = fresh_output.length.to_s
+        @headers['Content-Length'] = fresh_output.length.to_s 
         return html
     end
-
-    def random_quote()
-    random_author = rand(0..(@dictionnary['authors'].count-1))
-    random_quote = rand(0..(@dictionnary['quotes'].count - 1))
-    return "\t\"" + @dictionnary['quotes'][random_quote] + " - "+ @dictionnary['authors'][random_author] + "\"" + "\n"
-    end
-
 
 
 end
