@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
     s.description = "Rack Middleware that inserts random quotes into outbound html being served from any Rack webserver "
     s.authors     = ["Michel Chatmajian"]
     s.email       = 'chamich196@hotmail.com'
-    s.files       = ["lib/quotifier.rb"]
+    s.files       = ['lib/quotifier.rb', 'LICENSE', 'CHANGELOG.md']
     s.homepage    =
       'http://rubygems.org/gems/quotifier'
     s.license       = 'MIT'
