@@ -4,8 +4,9 @@ require 'quotify'
 
 class Quotifier
 
-    def initialize(app)
+    def initialize(app,css = false)
         @app  = app
+        @css = css
     end
 
     def call(env)
@@ -49,10 +50,12 @@ class Quotifier
                     line = line + "\n\t \\\\" + Quotify.generate
                 elsif css_flag
                     line = line + "\n\t #" + Quotify.generate
-                elsif !js_flag
+                else
+                    if(@css)
                     line = line + "\n\t" + Quotify.generate
-                elsif !css_flag
-                    line = line + "\n\t" + Quotify.generate
+                    else
+                    line = line 
+                    end
                 end
             end
             fresh_output << line + "\n"
