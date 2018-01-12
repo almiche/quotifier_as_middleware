@@ -1,6 +1,7 @@
 require 'json'
 require 'net/http'
 require 'quotify'
+require 'faraday'
 
 class Quotifier
 
@@ -30,7 +31,8 @@ class Quotifier
                 js_open: /[<]{1}script[>]{1}/,
                 js_closed: /[<]{1}\/script[>]{1}/,
                 style_open: /[<]{1}style[>]{1}/,
-                style_closed: /[<]{1}\/style[>]{1}/
+                style_closed: /[<]{1}\/style[>]{1}/,
+                head_close:/[<]{1}\/head[>]{1}/
         }
 
         string_html.split(/[\n\r]+/).each do |line|
@@ -42,6 +44,8 @@ class Quotifier
                 css_flag = true
             elsif regex[:style_closed].match(line)
                 css_flag = false
+            elsif regex[:head_close].match(line) && @css
+                line = "#{line}\n#{insert_css}"
             end
 
             random_mod = rand(1..10)
@@ -52,9 +56,10 @@ class Quotifier
                     line = line + "\n\t #" + Quotify.generate
                 else
                     if(@css)
-                    line = line + "\n\t" + Quotify.generate
+                    quote = Quotify.generate
+                    line = "#{line} #{keyvahnify(quote.quote,quote.author)}"
                     else
-                    line = line 
+                    line = line + "\n\t <!--" + Quotify.generate + "-->"
                     end
                 end
             end
@@ -66,6 +71,21 @@ class Quotifier
         html[0] = fresh_output
         @headers['Content-Length'] = fresh_output.length.to_s 
         html
+    end
+
+    def keyvahnify (quote,author)
+    
+        html ="\n<div id=\"box\">\n
+            <p id=\"quote\">\"#{quote}\"</p>\n
+            <brp />\n
+            <p id=\"author\">#{author}</p>\n
+        </div>\n"
+
+    end
+
+    def insert_css
+        stylesheet = Faraday.get 'https://raw.githubusercontent.com/almiche/quotifier_as_middleware/master/lib/static/shawarma.css'
+        return "<style>\n#{stylesheet.body}\n</style>"
     end
 
     #This will be used for the next release
