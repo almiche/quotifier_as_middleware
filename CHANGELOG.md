@@ -1,4 +1,4 @@
-## Version 0.0.4
+## Version 0.0.5
 
 This release now makes it so that all quotifier quotes are in comments in the html and not visible on to the user. As such it is much less obtrusive and much more in ine with the philosophy of the original Quotifier project. 
 
